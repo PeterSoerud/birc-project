@@ -252,7 +252,7 @@ If you did not do so when you installed Anaconda, you should download and instal
 
 ### How to run a Jupyter notebook on the cluster
 
-Jupyter runs best in the [Chrome browser](https://www.google.com/chrome). For the best experience, install that before you go on. It does not need to be your default browser. `slurm-jupyter` will use it anyway. Now make sure you are on your own machine and that your `popgen` environment is activated. Then run this command to start a jupyter notebook on the cluster and send the display to your browser:
+Jupyter runs best in the [Chrome browser](https://www.google.com/chrome) or Safari on Mac. For the best experience, install that before you go on. It does not need to be your default browser. `slurm-jupyter` will use it anyway. Now make sure you are on your own machine and that your `popgen` environment is activated. Then run this command to start a jupyter notebook on the cluster and send the display to your browser:
 
 ```bash
 slurm-jupyter -u usernanme -A projectfolder -e bircproject
@@ -260,7 +260,15 @@ slurm-jupyter -u usernanme -A projectfolder -e bircproject
 
 (replace `username` with your cluster user name, `projectfolder` with your project folder name, and `bircproject` with whatever you called your conda environment on the cluster).
 
-Watch the terminal to see what is going on. After a while, a jupyter notebook should show up in your browser window. The first time you do this, your browser may refuse to show jupyter because the connection is unsafe. In Safari you proceed to allow this. In Chrome, you can simply type the characters "thisisunsafe" while in the Chrome window:
+Watch the terminal to see what is going on. After a while, a jupyter notebook should show up in your browser window. The first time you do this, your browser may refuse to show jupyter because the connection is unsafe. In Safari you are prompted with this winidow where you click "details":
+
+<img src="img/mac_warning1.png" alt="image" width="450"/>
+
+Then you get this window and click "visit this website":
+
+<img src="img/mac_warning2.png" alt="image" width="450"/>
+
+In Chrome, you can simply type the characters "thisisunsafe" while in the Chrome window:
 
 <img src="img/thisisunsafe.png" alt="image" width="450"/>
 

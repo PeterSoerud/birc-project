@@ -53,7 +53,7 @@ To be able to connect to the cluster, you need to on the AU internal network. Yo
 
 <img src="https://atulhost.com/wp-content/uploads/2020/04/ssh.png" align="right" width="300" height="200" />
 
-SSH is short for secure shell. A shell is the software that lets you run commands in your terminal window. The *secure shell* (SSH) lets you securely log in to another computer so you can navigate the folders and run commands on that machine. So when you open your terminal window, your commands run on your local machine, but when you "ssh" (yes it is a verb too) into the cluster, your commands now run on the cluster. Before you go on, try to run the command `hostname` in you termina. You can see that it prints something that tells you that you are on your own computer. 
+SSH is short for secure shell. A shell is the software that lets you run commands in your terminal window. The *secure shell* (SSH) lets you securely log in to another computer so you can navigate the folders and run commands on that machine. So when you open your terminal window, your commands run on your local machine, but when you "ssh" (yes it is a verb too) into the cluster, your commands now run on the cluster. Before you go on, try to run the command `hostname` in you terminal. You can see that it prints something that tells you that you are on your own computer. 
 
 You connect to the cluster from the terminal by executing this command (replace `username` with your cluster user name):
 
@@ -136,7 +136,7 @@ Follow the default installation, and say **yes** when it asks you if it should r
 
 ### Creating an environment on the cluster
 
-Log in to the cluster and run this command to create a conda environment for your project on the cluster. This environment should contain the packages that you need for your project. Such packages may include:
+Log in to the cluster and run this command to create a conda environment for your project on the cluster. This environment should contain the packages that you need for your project. <!-- Such packages may include:
 
 - Grid workflow: [gwf](https://docs.gwf.app/)
 - Jupyter: [jupyter](https://jupyter.org/) [jupyterlab](https://jupyter.org/)
@@ -157,8 +157,13 @@ Log in to the cluster and run this command to create a conda environment for you
 The command below should install what you need for a project in population genetics:
 
     conda create --name bircproject -c gwforg -c conda-forge -c bioconda -c kaspermunch slurm-jupyter gwf pip jupyter jupyterlab ipyparallel numpy pandas matplotlib seaborn ipympl biopython pyfaidx scikit-allel pylint vcftools tabix samtools 
-    
-Should you end up needing more packages than you initially included, you can easily install them later. E.g., to see how to install `cartopy` using `conda`, just google "conda cartopy". The top link instructs you to install it like this: `conda install -c conda-forge cartopy`.
+   --> 
+   
+The command below should install what you need to get started on a project:
+   
+conda create --name bircproject -c gwforg -c conda-forge -c bioconda -c kaspermunch slurm-jupyter gwf jupyterlab jupyterlab-git pandas seaborn biopython 
+   
+You probably end up needing more packages than you initially included, you can easily install them later. E.g., to see how to install `biopython` using `conda`, just google "conda biopython". The top link instructs you to install it like this: `conda install -c conda-forge biopython`.
 
 **Important:** Whenever you log into the cluster to work on your project, you should activate your `bircproject` environment like this:
 
@@ -201,8 +206,9 @@ Once your own `birc-project` repository is ready, go to the repository front pag
 
 ### Git 
 
-[Git](https://git-scm.com/) is a version control tool that you use from the terminal. Start logging into the cluster and run these two commands to let Git know who you are:
+[Git](https://git-scm.com/) is a version control tool that you use from the terminal. It does not interfere with your files, but it lets you monitor the state of your files so you can easily see if any files are added, modified, or removed, and it allows you to (manually) maintain a record of what files where changes when, how, and for what reason. This record is stored on your own computer, so it does not serve as a backup in case your computer dies on you. To backup your record you need to syncronize your local `birc-project` repository on your computer with the `birc-project` repository on GitHub. You can see how below.
 
+Start logging into the cluster and run these two commands to let Git know who you are:
 ```
 git config --global user.name "Your GitHub user name"
 git config --global user.email your_email@whatever.com
@@ -212,7 +218,7 @@ Note that to run git commands tracking your `birc-project`, you must stand in yo
 
 [These tutorials](https://www.atlassian.com/git) are good. The three most important commands to learn are [git status](https://git-scm.com/docs/git-status), [git add](https://git-scm.com/docs/git-add), [git rm](https://git-scm.com/docs/git-rm), [git commit](https://git-scm.com/docs/git-commit) and [git push](https://git-scm.com/docs/git-push). Once you have some idea how it works, there is a cheat sheep [here](https://training.github.com/downloads/github-git-cheat-sheet/) are some good visual guides [here](https://ndpsoftware.com/git-cheatsheet.html) and [here](https://marklodato.github.io/visual-git-guide/index-en.html)
 
-Any files you push to GitHub are backed up. Make a habit of pushing all changes you make.
+Rember: Any files you push to GitHub are backed up. Make a habit of pushing all changes you make.
 
 ## Working on the cluster
 

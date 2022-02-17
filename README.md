@@ -49,7 +49,11 @@ Say yes (press Enter) when asked to install packages.
 To be able to connect to the cluster, you need to on the AU internal network. You can do that by either physically being on campus or by connecting to the AU network using VPN. To install VPN, use the instructions [on this page](https://studerende.au.dk/it-support/vpn/). Before you can *use* the VPN, you also need to enable two-step verification. You can see how to do that on the same page. If you are not physically on campus, you need to activate your VPN before you can log in to the cluster. Your password for VPN is the same as you use to log on to access Blackboard.
 
 
-### Connecting to the cluster
+### Connecting to the cluster using ssh
+
+<img src="https://atulhost.com/wp-content/uploads/2020/04/ssh.png" align="right" width="300" height="200" />
+
+SSH is short for secure shell. A shell is the software that lets you run commands in your terminal window. The *secure shell* (SSH) lets you securely log in to another computer so you can navigate the folders and run commands on that machine. So when you open your terminal window, your commands run on your local machine, but when you "ssh" (yes it is a verb too) into the cluster, your commands now run on the cluster. Before you go on, try to run the command `hostname` in you termina. You can see that it prints something that tells you that you are on your own computer. 
 
 You connect to the cluster from the terminal by executing this command (replace `username` with your cluster user name):
 
@@ -68,11 +72,7 @@ When you do, you are prompted for the password for your cluster username. Enter 
   \____/\___|_| |_|\___/|_| |_| |_|\___|___/ \_| \_/
 ```
 
-If you run the `hostname` command, you can see that you are on `fe1.genomedk.net`. Now log out of the cluster again. You do that using the `exit` command or by pressing `Ctrl-d`. Now you are back on your own machine. Try `hostname` again and see what your own machine is called.
-
-### Allow log in without password
-
-<img src="https://atulhost.com/wp-content/uploads/2020/04/ssh.png" align="right" width="300" height="200" />
+If you run the `hostname` command again, you can see that you are on `fe1.genomedk.net`. Now log out of the cluster again. You do that using the `exit` command or by pressing `Ctrl-d`. Now you are back on your own machine. Try `hostname` again and see what your own machine is called.
 
 You will need to log in to the cluster many many times, so you should set up your `ssh` connection to the cluster so you can connect securely without typing the password every time. You do not need to know *how* this works, but if you are interested, here is roughly how:
 

@@ -72,7 +72,7 @@ When you do, you are prompted for the password for your cluster username. Enter 
   \____/\___|_| |_|\___/|_| |_| |_|\___|___/ \_| \_/
 ```
 
-If you run the `hostname` command again, you can see that you are on `fe1.genomedk.net`. Now log out of the cluster again. You do that using the `exit` command or by pressing `Ctrl-d`. Now you are back on your own machine. Try `hostname` again and see what your own machine is called.
+If you run the `hostname` command again, you can see that you are on `fe-open-01`. Now log out of the cluster again. You do that using the `exit` command or by pressing `Ctrl-d`. Now you are back on your own machine. Try `hostname` again and see what your own machine is called.
 
 You will need to log in to the cluster many many times, so you should set up your `ssh` connection to the cluster so you can connect securely without typing the password every time. You do not need to know *how* this works, but if you are interested, here is roughly how:
 

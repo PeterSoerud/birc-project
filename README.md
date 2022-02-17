@@ -138,16 +138,24 @@ Follow the default installation, and say **yes** when it asks you if it should r
 
 Log in to the cluster and run this command to create a conda environment for your project on the cluster. This environment should contain the packages that you need for your project. Unless your supervise tells you otherwise, the command below should install what you need to get started on a project:
    
+```bash
 conda create --name bircproject -c gwforg -c conda-forge -c bioconda -c kaspermunch slurm-jupyter gwf jupyterlab jupyterlab-git pandas seaborn biopython 
-   
-> If your supervisor wants you to install a specific set of packages for your project, he/she may have given you a file called `environment.yml`. In that case you create you instead create your environment like this: `conda env create -n bircproject -f environment.yml`
-   
+```
+
+If your supervisor wants you to install a specific set of packages for your project, he/she may have given you a file called `environment.yml`. In that case you create you instead create your environment like this:
+
+```bash
+conda env create -n bircproject -f environment.yml`
+```
+
 You probably end up needing more packages than you initially included, you can easily install them later. E.g., to see how to install `biopython` using `conda`, just google "conda biopython". The top link instructs you to install it like this: `conda install -c conda-forge biopython`.
 
 **Important:** Whenever you log into the cluster to work on your project, you should activate your `bircproject` environment like this:
 
-    conda activate bircproject
-    
+```bash
+conda activate bircproject
+```
+
  When your environment is active, it says `(bircproject)` on the command prompt instead of `(base)`.
 
 

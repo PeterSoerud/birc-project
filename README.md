@@ -199,7 +199,14 @@ Once your own `birc-project` repository is ready, go to the repository front pag
 
 ### Git 
 
-Git is a version control tool. Learn basic [Git](https://git-scm.com/). [These tutorials](https://www.atlassian.com/git) are good. Once you have some idea how it works, there is a cheat sheep [here](https://training.github.com/downloads/github-git-cheat-sheet/) are some good visual guides [here](https://ndpsoftware.com/git-cheatsheet.html) and [here](https://marklodato.github.io/visual-git-guide/index-en.html)
+Git is a version control tool that you use from the terminal. Start logging into the cluster and run these two commands to let Git know who you are:
+
+```
+git config --global user.name "Your GitHub user name"
+git config --global user.email your_email@whatever.com
+```
+
+Learn basic [Git](https://git-scm.com/). [These tutorials](https://www.atlassian.com/git) are good. Once you have some idea how it works, there is a cheat sheep [here](https://training.github.com/downloads/github-git-cheat-sheet/) are some good visual guides [here](https://ndpsoftware.com/git-cheatsheet.html) and [here](https://marklodato.github.io/visual-git-guide/index-en.html)
 
 Any files you push to GitHub are backed up. Make a habit of pushing all changes you make.
 

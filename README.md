@@ -136,32 +136,11 @@ Follow the default installation, and say **yes** when it asks you if it should r
 
 ### Creating an environment on the cluster
 
-Log in to the cluster and run this command to create a conda environment for your project on the cluster. This environment should contain the packages that you need for your project. <!-- Such packages may include:
-
-- Grid workflow: [gwf](https://docs.gwf.app/)
-- Jupyter: [jupyter](https://jupyter.org/) [jupyterlab](https://jupyter.org/)
-- Vectors and data frames: [numpy](https://numpy.org/) [pandas](https://pandas.pydata.org/docs/) 
-- Plotting: [matplotlib](https://matplotlib.org/) [seaborn](https://seaborn.pydata.org/) [ipympl](https://github.com/matplotlib/ipympl) 
-- Maps: [cartopy](https://scitools.org.uk/cartopy/docs/latest/) [fiona](https://github.com/Toblerity/Fiona)
-- Statistics: [scipy](https://www.scipy.org/) [statsmodels](https://www.statsmodels.org/stable/index.html)
-- Machine learning: [scikit-learn](https://scikit-learn.org/stable/)
-- Trees: [ete3](http://etetoolkit.org/)
-- Misc bioinformatics: [scikit-bio](http://scikit-bio.org/), [biopython](https://biopython.org/)
-- Storage and indexing: [pyfaidx](https://pythonhosted.org/pyfaidx/) [samtools](http://www.htslib.org/) h5py
-- Graphs: [networkx](https://networkx.org/)
-- Gene annotation: [mygene](https://mygene.info/)
-- Pathways and enrichment: [pypathway](https://nadp.me/PyPathway/)
-- Simulation: [msprime](https://msprime.readthedocs.io/en/stable/)
-- VCF files: [scikit-allel](https://scikit-allel.readthedocs.io/en/stable/) [vcftools](https://vcftools.github.io/index.html)
-
-The command below should install what you need for a project in population genetics:
-
-    conda create --name bircproject -c gwforg -c conda-forge -c bioconda -c kaspermunch slurm-jupyter gwf pip jupyter jupyterlab ipyparallel numpy pandas matplotlib seaborn ipympl biopython pyfaidx scikit-allel pylint vcftools tabix samtools 
-   --> 
-   
-The command below should install what you need to get started on a project:
+Log in to the cluster and run this command to create a conda environment for your project on the cluster. This environment should contain the packages that you need for your project. Unless your supervise tells you otherwise, the command below should install what you need to get started on a project:
    
 conda create --name bircproject -c gwforg -c conda-forge -c bioconda -c kaspermunch slurm-jupyter gwf jupyterlab jupyterlab-git pandas seaborn biopython 
+   
+> If your supervisor wants you to install a specific set of packages for your project, he/she may have given you a file called `environment.yml`. In that case you create you instead create your environment like this: `conda env create -n bircproject -f environment.yml`
    
 You probably end up needing more packages than you initially included, you can easily install them later. E.g., to see how to install `biopython` using `conda`, just google "conda biopython". The top link instructs you to install it like this: `conda install -c conda-forge biopython`.
 

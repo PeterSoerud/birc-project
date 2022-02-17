@@ -145,7 +145,7 @@ conda create --name bircproject -c gwforg -c conda-forge -c bioconda -c kaspermu
 If your supervisor wants you to install a specific set of packages for your project, he/she may have given you a file called `environment.yml`. In that case you create you instead create your environment like this:
 
 ```bash
-conda env create -n bircproject -f environment.yml`
+conda env create -n bircproject -f environment.yml
 ```
 
 You probably end up needing more packages than you initially included, you can easily install them later. E.g., to see how to install `biopython` using `conda`, just google "conda biopython". The top link instructs you to install it like this: `conda install -c conda-forge biopython`.

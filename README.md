@@ -191,7 +191,9 @@ Your files on the cluster are not backed up! If you want to backup files, you ne
 
 The page you are reading now is a GitHub repository. In addition to the documentation you are currently reading, it serves as a template for your project.
 
-Start by creating your own [github account](https://github.com/join) if you do not have one. Then follow the instructions [on this page](https://www.inmotionhosting.com/support/server/ssh/how-to-add-ssh-keys-to-your-github-account/) to add ssh keys to GitHub, so you do not need to type your password every time you sync with GitHub.
+Start by creating your own [github account](https://github.com/join) if you do not have one. 
+
+Then you need to follow the instructions [on this page](https://www.inmotionhosting.com/support/server/ssh/how-to-add-ssh-keys-to-your-github-account/) to add ssh keys to GitHub.
 
 Now log in to your GitHub account on the web. Go to the [birc-project repository](https://github.com/kaspermunch/birc-project). In addition to this page, the repository contains a folder structure and config files, which serve as a good starting point for a project repository. You must now "fork" the repository. Forking creates your own copy of the `birc-project` repository under your own GitHub account. To fork the repository, click the button in the top right corner that says `Fork`.
 
@@ -199,14 +201,16 @@ Once your own `birc-project` repository is ready, go to the repository front pag
 
 ### Git 
 
-Git is a version control tool that you use from the terminal. Start logging into the cluster and run these two commands to let Git know who you are:
+[Git](https://git-scm.com/) is a version control tool that you use from the terminal. Start logging into the cluster and run these two commands to let Git know who you are:
 
 ```
 git config --global user.name "Your GitHub user name"
 git config --global user.email your_email@whatever.com
 ```
 
-Learn basic [Git](https://git-scm.com/). [These tutorials](https://www.atlassian.com/git) are good. Once you have some idea how it works, there is a cheat sheep [here](https://training.github.com/downloads/github-git-cheat-sheet/) are some good visual guides [here](https://ndpsoftware.com/git-cheatsheet.html) and [here](https://marklodato.github.io/visual-git-guide/index-en.html)
+Note that to run git commands tracking your `birc-project`, you must stand in your `birc-project` folder when you run them. 
+
+[These tutorials](https://www.atlassian.com/git) are good. The three most important commands to learn are [git status](https://git-scm.com/docs/git-status), [git add](https://git-scm.com/docs/git-add), [git rm](https://git-scm.com/docs/git-rm), [git commit](https://git-scm.com/docs/git-commit) and [git push](https://git-scm.com/docs/git-push). Once you have some idea how it works, there is a cheat sheep [here](https://training.github.com/downloads/github-git-cheat-sheet/) are some good visual guides [here](https://ndpsoftware.com/git-cheatsheet.html) and [here](https://marklodato.github.io/visual-git-guide/index-en.html)
 
 Any files you push to GitHub are backed up. Make a habit of pushing all changes you make.
 

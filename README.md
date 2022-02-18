@@ -8,6 +8,8 @@ The cluster is a very large collection of computers with a shared file system. I
 
 **NB:** This is not a leisure read. Make sure you follow it to the letter, doing each step in order.
 
+Below you will see something like `<cluster user name>` or `<project folder>` a lot. When ever you see something like that you should replace the whole thing, including `<` and `>`, with whatever is says. E.g., if your cluster user name is `preben` you should replace `<cluster user name>` with `preben`.
+
 Before you can begin, you need access to the cluster. The cluster is called GenomeDK and has its own [website](https://genome.au.dk) with lots of information and documentation. To get an account on the cluster, you must [request one here](https://genome.au.dk/docs/getting-started/#request-access). Below, `username` will represent your user name.
 
 On the cluster, you have a home folder that only you have can access. That is where you end up when you log in. Collaborative projects or projects that use or generate a lot of data projects belong in project folders. If you do a project, we will set up a dedicated project folder for this. 
@@ -55,10 +57,10 @@ To be able to connect to the cluster, you need to on the AU internal network. Yo
 
 SSH is short for secure shell. A shell is the software that lets you run commands in your terminal window. The *secure shell* (SSH) lets you securely log in to another computer so you can navigate the folders and run commands on that machine. So when you open your terminal window, your commands run on your local machine, but when you "ssh" (yes it is a verb too) into the cluster, your commands now run on the cluster. Before you go on, try to run the command `hostname` in you terminal. You can see that it prints something that tells you that you are on your own computer. 
 
-You connect to the cluster from the terminal by executing this command (replace `username` with your cluster user name):
+You connect to the cluster from the terminal by executing this command (remember to replace `<cluster user name>` with your actual cluster user name):
 
 ```bash
-ssh username@login.genome.au.dk
+ssh <cluster user name>@login.genome.au.dk
 ```
 
 When you do, you are prompted for the password for your cluster username. Enter that and press enter. You are now in your home folder on the cluster. Your terminal looks the same as before, but it will print:
@@ -91,13 +93,13 @@ You most likely do not. If so, you generate a pair of authentication keys with t
 ssh-keygen -t rsa
 ```
 
-Now use `ssh` to create a directory `~/.ssh` on the cluster (assuming your username on the cluster is `username`). You will be prompted for your password.
+Now use `ssh` to create a directory `~/.ssh` on the cluster (assuming your username on the cluster is `<cluster user name>`). You will be prompted for your password.
 
 ```bash
-ssh username@login.genome.au.dk mkdir -p .ssh
+ssh <cluster user name>@login.genome.au.dk mkdir -p .ssh
 ```
 
-Finally, append the public `ssh` key on your local machine to the file `.ssh/authorized_keys` on the cluster and enter your password (replace `username` with your cluster user name):
+Finally, append the public `ssh` key on your local machine to the file `.ssh/authorized_keys` on the cluster and enter your password (replace `<cluster user name>` with your cluster user name):
 
 ```bash
 cat ~/.ssh/id_rsa.pub | ssh username@login.genome.au.dk 'cat >> .ssh/authorized_keys'
@@ -110,7 +112,7 @@ From now on, you can log into the cluster from your local machine without being 
 Now log in to the cluster:
 
 ```bash
-ssh username@login.genome.au.dk
+ssh <cluster user name>@login.genome.au.dk
 ```
 
 (see, no password).
@@ -189,21 +191,29 @@ Then you need to follow the instructions [on this page](https://www.inmotionhost
 
 Now log in to your GitHub account on the web. Go to the [birc-project repository](https://github.com/kaspermunch/birc-project). In addition to this page, the repository contains a folder structure and config files, which serve as a good starting point for a project repository. You must now "fork" the repository. Forking creates your own copy of the `birc-project` repository under your own GitHub account. To fork the repository, click the button in the top right corner that says `Fork`.
 
-Once your own `birc-project` repository is ready, go to the repository front page. There you will find your own copy of this page. Read on from there.
+Once your own `birc-project` repository is ready, go to the repository front page. There you will find your own copy of this page `README.md`. Read on from there.
 
 ### Git 
 
-[Git](https://git-scm.com/) is a version control tool that you use from the terminal. It does not interfere with your files, but it lets you monitor the state of your files so you can easily see if any files are added, modified, or removed, and it allows you to (manually) maintain a record of what files where changes when, how, and for what reason. This record is stored on your own computer, so it does not serve as a backup in case your computer dies on you. To backup your record you need to syncronize your local `birc-project` repository on your computer with the `birc-project` repository on GitHub. You can see how below.
+[Git](https://git-scm.com/) is a version control tool that you use from the terminal. A folder under Git control is called a repository. `birc-project` is such a repository. Git does not interfere with your files and it does not save them. It lets you monitor the state of your files so you can easily see if any files are added, modified, or removed, and it allows you to (manually) maintain a record of what files where changes when, how, and for what reason. 
 
 Start logging into the cluster and run these two commands to let Git know who you are:
 ```
-git config --global user.name "Your GitHub user name"
-git config --global user.email your_email@whatever.com
+git config --global user.name "<Your GitHub user name>"
+git config --global user.email <your_email@whatever.com>
 ```
 
 Note that to run git commands tracking your `birc-project`, you must stand in your `birc-project` folder when you run them. 
 
-[These tutorials](https://www.atlassian.com/git) are good. The three most important commands to learn are [git status](https://git-scm.com/docs/git-status), [git add](https://git-scm.com/docs/git-add), [git rm](https://git-scm.com/docs/git-rm), [git commit](https://git-scm.com/docs/git-commit) and [git push](https://git-scm.com/docs/git-push). Once you have some idea how it works, there is a cheat sheep [here](https://training.github.com/downloads/github-git-cheat-sheet/) are some good visual guides [here](https://ndpsoftware.com/git-cheatsheet.html) and [here](https://marklodato.github.io/visual-git-guide/index-en.html)
+[These tutorials](https://www.atlassian.com/git) are good. The three most important commands to learn are [git status](https://git-scm.com/docs/git-status), [git add](https://git-scm.com/docs/git-add), [git rm](https://git-scm.com/docs/git-rm), [git commit](https://git-scm.com/docs/git-commit) and [git push](https://git-scm.com/docs/git-push). 
+
+You should read the documentation, but in a nutshell this is how it works:
+
+`git status` shows you the status of your files. It may show you that you have created or modified one or more files.
+
+To journal the creation or modification of a file, you run  `git add <the_changed_file>`. This "stages" the change. This adds the file to the a "group" of changes that represent some modification to your project. You can add more files to that "group" by running `git add` again. if  Maybe you added two python files that together lets you run some analysis. Now you want to store the group of changes to the journal maintained by Git and associate it with a description that describes it. For that you use `git commit -m 'description'`. If you added two python files, your description could be `'Added two python files for my analysis'`. Now your changes are recorded in the Git journal for the `birc-project` repository on the cluster, but that does not serve as a backup in case you accidentally delete your entire folder or the cluster burns down. To backup your repository you need to synchronize your local `birc-project` repository on your computer with the `birc-project` repository on GitHub. You can see how below.
+
+There is a cheat sheet [here](https://training.github.com/downloads/github-git-cheat-sheet/) and some good visual guides [here](https://ndpsoftware.com/git-cheatsheet.html) and [here](https://marklodato.github.io/visual-git-guide/index-en.html).
 
 Rember: Any files you push to GitHub are backed up. Make a habit of pushing all changes you make.
 
@@ -221,18 +231,20 @@ It is accessible to only you and anyone else you collaborate with (such as your 
             /username
             /supervisor_username
 
-The `projectfolder/people/username` is your domain. This is where you have all the files that relates to your project.
+The `<projectfolder>/people/<username>` is your domain. This is where you have all the files that relates to your project.
 
 The name of the project folder is is also the name of the account that you should bill any work on the cluster to. When you run `srun`, `sbatch` or `slurm-jupyter` you myst specify that project name using the `-A` or `--account` options (see below for more details on that). 
 
 ### Cloning your git repository to the cluster
 
-Go to your project folder and clone your repository:
+Go to your folder under the project folder (`<projectfolder>/people/<username>`) and clone your repository:
 
 ```bash
 git clone git@github.com:username/birc-project.git
 ```
 (replace `username` with your GitHub username).
+
+You now have a folder called `<projectfolder>/people/<username>/birc-project` and this is where you will do all your work for the project.
 
 If you `cd` into `birc-directory` and run `ls`, you will see a number of folders.
 
@@ -252,17 +264,17 @@ Files in all those folders are under Git control, *except* files in the `steps` 
 
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Visual_Studio_Code_1.35_icon.svg/2560px-Visual_Studio_Code_1.35_icon.svg.png" align="right" width="100" height="100" />
 
-If you did not do so when you installed Anaconda, you should download and install Visual Studio Code. VScode is great for developing scripts and editing text files. Once you have installed VS code, you should install the "Remote Development" extension. You do that by clicking the funny squares in the left bar and search for "Remote Development". Once installed, you can click the small green square in the lower-left corner to connect to the cluster. Select "Connect current window to host" then "Add new SSH host", then type `<your_cluster_username>@login.genome.au.dk`, then select the config file `.ssh/config`. Now you can click the small green square in the lower-left corner to connect to the cluster by selecting `login.genome.au.dk`. It may take a bit, but once it is done installing a remote server, you will have access to the files in your home folder on the cluster.
+If you did not do so when you installed Anaconda, you should download and install Visual Studio Code. VScode is great for developing scripts and editing text files. Once you have installed VS code, you should install the "Remote Development" extension. You do that by clicking the funny squares in the left bar and search for "Remote Development". Once installed, you can click the small green square in the lower-left corner to connect to the cluster. Select "Connect current window to host" then "Add new SSH host", then type `<username>@login.genome.au.dk`, then select the config file `.ssh/config`. Now you can click the small green square in the lower-left corner to connect to the cluster by selecting `login.genome.au.dk`. It may take a bit, but once it is done installing a remote server, you will have access to the files in your home folder on the cluster.
 
 ### How to run a Jupyter notebook on the cluster
 
 Jupyter runs best in the [Chrome browser](https://www.google.com/chrome) or Safari on Mac. For the best experience, install that before you go on. It does not need to be your default browser. `slurm-jupyter` will use it anyway. Now make sure you are on your own machine and that your `popgen` environment is activated. Then run this command to start a jupyter notebook on the cluster and send the display to your browser:
 
 ```bash
-slurm-jupyter -u usernanme -A projectfolder -e bircproject
+slurm-jupyter -C -u <cluster_user_name> -A <projectfolder<> -e bircproject
 ```
 
-(replace `username` with your cluster user name, `projectfolder` with your project folder name, and `bircproject` with whatever you called your conda environment on the cluster).
+(replace `<cluster_user_name>` with your cluster user name, `<projectfolder>` with your project folder name.
 
 Watch the terminal to see what is going on. After a while, a jupyter notebook should show up in your browser window. The first time you do this, your browser may refuse to show jupyter because the connection is unsafe. In Safari you are prompted with this winidow where you click "details":
 
@@ -283,10 +295,10 @@ Once ready, jupyter may ask for your cluster password. To close the jupyter note
 When you log into the cluster, you land on the "front-end" of the cluster. Think of it as the lobby of a giant hotel. If you execute the `hostname` command, you will get `fe-open-01`. `fe1` is the name of the front-end machine. The "front-end" is a single machine shared by anyone who logs in. So you cannot run resource-intensive jobs there, but quick commands are ok. Commands that finish in less than ten seconds are ok. In the exercises for this course, you will run software that takes a much longer time to finish. So you need one of the computing machines on the cluster, so you can work on that instead. You ask for a computing machine by running this command:
 
 ```bash
-srun --mem-per-cpu=1g --time=3:00:00 --account=populationgenomics --pty bash
+srun --mem-per-cpu=1g --time=3:00:00 --account=<projectfolder> --pty bash
 ```
 
-That says that you need at most one gigabyte of memory, that you need it for at most three hours (the duration of the exercise), and that the computing expenses should be billed to the project `populationgenomics` (which is our course). When you execute the command, your terminal will say "srun: job 40924828 queued and waiting for resources". That means that you are waiting for a machine. Once it prints "srun: job 40924828 has been allocated resources", you have been logged into a computing node. If you execute the `hostname` command, you will get something like `s05n20`. `s05n20` is a computing machine. Now you can execute any command you like without causing trouble for anyone. 
+That says that you need at most one gigabyte of memory, that you need it for at most three hours (the duration of the exercise), and that the computing expenses should be billed to the project `<projectfolder>`. When you execute the command, your terminal will say "srun: job 40924828 queued and waiting for resources". That means that you are waiting for a machine. Once it prints "srun: job 40924828 has been allocated resources", you have been logged into a computing node. If you execute the `hostname` command, you will get something like `s05n20`. `s05n20` is a computing machine. The same way you moved from your own computer to front-end machine of the cluster by logging in using ssh, the command above moves you from the front-end to a compute machine. Now you can execute any command you like without causing trouble for anyone.
 
 Now try to log out of the compute node by executing the `exit` command or by pressing `Ctrl-d`. If you execute the `hostname` command again, you will get `fe1.genomedk.net` showing that you are back at the front-end machine.
 
@@ -300,14 +312,14 @@ Create a file called `myscript.sh` with exactly this content:
 #!/bin/bash
 #SBATCH --mem=1gb
 #SBATCH --time=01:00:00
-#SBATCH --account=projectfolder
+#SBATCH --account=<projectfolder>
 #SBATCH --job-name=firstjob
 
 echo "I can submit cluster jobs now!" > success.txt
 ```
-(replace `projectfolder` with your project folder name)
+(replace `<projectfolder>` with your project folder name)
 
-The first line says this is a bash script, the lines following three lines say that your job needs at most one gigabyte of memory, will run for at most one hour, that the expenses should be billed to the project populationgenomics (which is our course). The fourth line gives the name of the job. Here we have called it `firstjob`, but you should name it something sensible. 
+The first line says this is a bash script, the lines following three lines say that your job needs at most one gigabyte of memory, will run for at most one hour, that the expenses should be billed to the project `<projectfolder>`. The fourth line gives the name of the job. Here we have called it `firstjob`, but you should name it something sensible. 
 
 You submit the job using the `sbatch` command: 
 
@@ -355,13 +367,13 @@ That is basically it.
 You may need to transfer files back and forth between your own machine and the cluster. To copy a file called `file` in a directory called `dir` on the cluster to the current folder on your own machine, you can use the `scp` command:
 
 ```bash
-scp username@login.genome.au.dk:dir/file .
+scp <cluster_user_name>@login.genome.au.dk:dir/file .
 ```
 
 To copy a file called `file` in the current folder on your own machine to a folder called `dir` on the cluster, you do this:
 
 ```bash
-scp ./file username@login.genome.au.dk:dir/
+scp ./file <cluster_user_name>@login.genome.au.dk:dir/
 ```
 
 ## Reproducible research
